@@ -14,6 +14,8 @@ COPY config.toml ./
 COPY content ./content
 COPY templates ./templates
 COPY static ./static
+# COPY preserves source file modes; nginx workers can't read 0600 files (403).
+RUN chmod -R a+r /site/static
 RUN zola build --output-dir /site/public
 
 FROM nginx:1.29-alpine

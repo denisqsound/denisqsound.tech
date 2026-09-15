@@ -1,6 +1,6 @@
 base_url = "https://denisqsound.tech"
 title = "denisqsound"
-description = "Блог и статьи Дениса: звук, код и инфраструктура."
+description = "Статьи Дениса: звук, код и инфраструктура."
 default_language = "ru"
 compile_sass = false
 minify_html = true

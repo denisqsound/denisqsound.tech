@@ -94,6 +94,7 @@
 * { box-sizing: border-box; }
 
 html { font-size: 100%; }
+html, body { overflow-x: clip; }
 
 body {
   margin: 0;
@@ -254,7 +255,7 @@ h1, h2, h3, h4 {
   margin: 0 0 0.9rem;
 }
 
-.prose { font-size: 1.125rem; }
+.prose { font-size: 1.125rem; overflow-wrap: break-word; }
 .prose > *:first-child { margin-top: 0; }
 
 .prose p { margin: 0 0 1.4em; }
@@ -321,10 +322,12 @@ h1, h2, h3, h4 {
 }
 
 .prose table {
+  display: block;
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
   font-size: 0.95rem;
+  overflow-x: auto;
 }
 .prose th, .prose td {
   text-align: left;

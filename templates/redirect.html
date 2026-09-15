@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ config.default_language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} · {{ config.title }}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ config.base_url }}{{ page.extra.redirect_to }}">
+<meta http-equiv="refresh" content="0; url={{ page.extra.redirect_to }}">
+<script>location.replace("{{ page.extra.redirect_to }}");</script>
+</head>
+<body>
+<p>Перенаправление: <a href="{{ page.extra.redirect_to }}">{{ page.title }}</a></p>
+</body>
+</html>

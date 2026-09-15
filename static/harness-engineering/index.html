@@ -22,8 +22,9 @@
   :root{--bg:#171512;--ink:#e8e4de;--ink-2:#9d968c;--line:#2d2a25;--accent:#e0795f;--code-bg:#201d19;--side-bg:#1e1c18}
 }
 *{box-sizing:border-box}
+html,body{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"PT Serif",Georgia,serif;font-size:1.1rem;line-height:1.72;-webkit-font-smoothing:antialiased}
-article{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+article{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 4rem;overflow-wrap:break-word}
 h1{font-size:clamp(1.8rem,4.5vw,2.4rem);line-height:1.2;margin:0 0 1rem;letter-spacing:-0.01em}
 h2{font-size:1.5rem;margin:2.6em 0 .8em;line-height:1.3}
 h3{font-size:1.2rem;margin:2.2em 0 .7em}
@@ -55,7 +56,7 @@ figure,.figure{margin:2.2rem 0}
 .sidebar h2{font-size:1.05rem;margin:0 0 .6rem}
 .sidebar p{margin-bottom:.6em}
 .sidebar p:last-child{margin-bottom:0}
-table{width:100%;border-collapse:collapse;margin:1.8rem 0;font-size:.9rem}
+table{display:block;width:100%;border-collapse:collapse;margin:1.8rem 0;font-size:.9rem;overflow-x:auto}
 th{font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:400;color:var(--bg);background:var(--ink);text-align:left;padding:.5rem .7rem}
 td{padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
 ul,ol{padding-left:1.4em;margin:0 0 1.4em}

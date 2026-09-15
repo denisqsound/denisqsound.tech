@@ -1,6 +1,6 @@
 # denisqsound.tech
 
-Личный сайт: блог и статьи. Zola → статика → nginx в контейнере на Oracle A1.
+Личный сайт со статьями. Zola → статика → nginx в контейнере на Oracle A1.
 
 ## Разработка
 
@@ -11,8 +11,7 @@ zola serve          # http://127.0.0.1:1111
 
 Контент — Markdown в `content/`:
 
-- `content/articles/` — длинные статьи
-- `content/blog/` — короткие заметки
+- `content/articles/` — статьи
 - `content/about.md` — страница «обо мне»
 
 Front matter записи:

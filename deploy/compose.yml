@@ -1,0 +1,16 @@
+# Runs on the oracle host from /opt/denisqsound/compose.yml.
+# The container joins the shared `edge` network; edge-proxy routes by SNI/Host.
+# No published ports: nothing here needs to be reachable from outside.
+name: denisqsound
+
+services:
+  web:
+    image: denisqsound-web:${TAG:-latest}
+    container_name: denisqsound-web
+    restart: unless-stopped
+    networks:
+      - edge
+
+networks:
+  edge:
+    external: true

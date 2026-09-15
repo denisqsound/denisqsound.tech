@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="intro">
+  {{ section.content | safe }}
+</section>
+
+{% set articles = get_section(path="articles/_index.md") %}
+{% set notes = get_section(path="blog/_index.md") %}
+{% set posts = [...articles.pages, ...notes.pages] | sort(attribute="date") | reverse %}
+
+{% if posts | length > 0 %}
+<ul class="post-list">
+  {% for p in posts[:15] %}
+  <li>
+    <a class="post-link" href="{{ p.permalink }}">{{ p.title }}</a>
+    {% if p.description %}<p class="post-desc">{{ p.description }}</p>{% endif %}
+    <p class="meta">{% if "articles/_index.md" in p.ancestors %}статья{% else %}заметка{% endif %} · {{ p.date | date(format="%d.%m.%Y") }}</p>
+  </li>
+  {% endfor %}
+</ul>
+<nav class="more-links">
+  <a href="{{ config.base_url }}/articles/">все статьи</a>
+  <a href="{{ config.base_url }}/blog/">весь блог</a>
+</nav>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}404 · {{ config.title }}{% endblock title %}
+
+{% block content %}
+<header class="page-head">
+  <h1>404</h1>
+  <p class="lede">Такой страницы нет. Возможно, она переехала или её не было.</p>
+  <p><a href="{{ config.base_url }}/">На главную</a></p>
+</header>
+{% endblock content %}

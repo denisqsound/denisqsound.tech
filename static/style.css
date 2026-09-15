@@ -1,0 +1,434 @@
+/* denisqsound.tech — minimal editorial
+   PT Serif (текст и заголовки) + JetBrains Mono (метаданные, код).
+   Одна колонка ~42rem, одна тема на страницу, акцентный цвет один. */
+
+@font-face {
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/pt-serif-cyrillic-400-normal.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/pt-serif-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "PT Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/pt-serif-cyrillic-400-italic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "PT Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/pt-serif-latin-400-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/pt-serif-cyrillic-700-normal.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "PT Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/pt-serif-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-cyrillic-400-normal.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --bg: #fbfbfa;
+  --ink: #1b1917;
+  --ink-2: #5f5a54;
+  --line: #e6e3de;
+  --accent: #a03a2b;
+  --code-bg: #f3f0ec;
+  --mark: #efe8d8;
+  --measure: 42rem;
+  --pad: clamp(1.25rem, 4vw, 2rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171512;
+    --ink: #e8e4de;
+    --ink-2: #9d968c;
+    --line: #2d2a25;
+    --accent: #e0795f;
+    --code-bg: #201d19;
+    --mark: #3a2e22;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--mark); color: var(--ink); }
+
+main, .site-head, .site-foot {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+/* ---------- header ---------- */
+
+.site-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.wordmark::after { content: ".tech"; color: var(--accent); }
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+}
+.site-nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.site-nav a:hover { color: var(--accent); }
+
+/* ---------- main / typography ---------- */
+
+main { padding-top: 3rem; padding-bottom: 4rem; min-height: 60vh; }
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.intro p:first-child {
+  font-size: 1.35rem;
+  line-height: 1.5;
+  margin-top: 0;
+}
+.intro p { max-width: 36rem; }
+
+.page-head { margin-bottom: 2.5rem; }
+.page-head h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.75rem;
+}
+.lede {
+  font-size: 1.15rem;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 36rem;
+}
+
+.meta {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--ink-2);
+  letter-spacing: 0.01em;
+}
+.meta a { color: inherit; }
+.meta a:hover { color: var(--accent); }
+
+/* ---------- post lists ---------- */
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.post-list li {
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--line);
+}
+.post-list li:first-child { border-top: none; padding-top: 0.5rem; }
+
+.post-link {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  text-decoration: none;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+.post-link:hover { color: var(--accent); }
+
+.post-desc {
+  margin: 0.35rem 0 0;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 36rem;
+}
+.post-list .meta { margin: 0.4rem 0 0; }
+
+.more-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+}
+.more-links a {
+  color: var(--ink-2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.more-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.tag-list { list-style: none; padding: 0; }
+.tag-list li { padding: 0.4rem 0; }
+
+/* ---------- article ---------- */
+
+.post-head { margin-bottom: 2.5rem; }
+.post-head .meta { margin: 0 0 1rem; }
+.post-head h1 {
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  margin: 0 0 0.9rem;
+}
+
+.prose { font-size: 1.125rem; }
+.prose > *:first-child { margin-top: 0; }
+
+.prose p { margin: 0 0 1.4em; }
+
+.prose h2 { font-size: 1.55rem; margin: 2.6em 0 0.8em; }
+.prose h3 { font-size: 1.25rem; margin: 2.2em 0 0.7em; }
+.prose h2 + h3 { margin-top: 1.2em; }
+
+.zola-anchor {
+  color: var(--ink-2);
+  text-decoration: none;
+  opacity: 0;
+  margin-left: 0.4rem;
+  font-size: 0.8em;
+  transition: opacity 0.15s ease;
+}
+.prose h2:hover .zola-anchor,
+.prose h3:hover .zola-anchor { opacity: 1; }
+
+.prose a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+.prose a:hover { color: var(--accent); }
+
+.prose ul, .prose ol { padding-left: 1.4em; margin: 0 0 1.4em; }
+.prose li { margin-bottom: 0.35em; }
+.prose li::marker { color: var(--ink-2); }
+
+.prose blockquote {
+  margin: 2em 0;
+  padding: 0 0 0 1.25rem;
+  border-left: 2px solid var(--accent);
+  color: var(--ink-2);
+  font-style: italic;
+}
+.prose blockquote p { margin-bottom: 0.7em; }
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 3rem auto;
+  width: 40%;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+}
+
+.prose figure { margin: 2rem 0; }
+.prose figcaption {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+.prose th, .prose td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.prose th {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+/* code */
+.prose code {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.85em;
+}
+.prose :not(pre) > code {
+  background: var(--code-bg);
+  padding: 0.12em 0.35em;
+  border-radius: 3px;
+}
+.prose pre {
+  background: var(--code-bg);
+  padding: 1.1rem 1.25rem;
+  margin: 1.8rem 0;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border-radius: 4px;
+}
+.prose pre code { padding: 0; background: none; }
+
+/* giallo (zola syntax highlighting) */
+.giallo-l {
+  display: inline-block;
+  min-height: 1lh;
+  width: 100%;
+}
+.giallo-ln {
+  display: inline-block;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0.4em;
+  min-width: 3ch;
+  text-align: right;
+  opacity: 0.8;
+}
+pre.giallo {
+  background: var(--code-bg) !important;
+  border-radius: 4px;
+}
+
+/* footnotes */
+.prose .footnote-definition {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  padding-top: 0.5rem;
+}
+.prose sup { font-size: 0.7em; }
+.prose sup a { text-decoration: none; color: var(--accent); }
+.footnote-definition p { display: inline; }
+
+/* post nav */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+}
+.post-nav a { text-decoration: none; color: var(--ink-2); }
+.post-nav a:hover { color: var(--accent); }
+.post-nav .next { margin-left: auto; text-align: right; }
+
+/* ---------- footer ---------- */
+
+.site-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid var(--line);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+.site-foot a { color: var(--ink-2); text-decoration: none; }
+.site-foot a:hover { color: var(--accent); }
+
+/* ---------- motion / responsive ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .post-list li { transition: background-color 0.2s ease; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 1.05rem; }
+  .site-head { flex-direction: column; gap: 0.6rem; }
+  main { padding-top: 2rem; }
+  .post-head h1 { font-size: 1.8rem; }
+}

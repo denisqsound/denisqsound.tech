@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
+{% block og %}
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description | default(value=config.description) }}">
+<meta property="og:url" content="{{ page.permalink }}">
+{% if page.date %}<meta property="article:published_time" content="{{ page.date }}">{% endif %}
+{% endblock og %}
+
+{% block content %}
+<article class="post">
+  <header class="post-head">
+    <p class="meta">
+      {%- set rt = page.reading_time %}
+      {%- if page.date %}{{ page.date | date(format="%d.%m.%Y") }}{% if rt %} · {% endif %}{% endif %}
+      {%- if rt %}
+      {%- set rt10 = rt % 10 %}
+      {%- set rt100 = rt % 100 %}
+      {{ rt }} {% if rt10 == 1 and rt100 != 11 %}минута{% elif rt10 >= 2 and rt10 <= 4 and (rt100 < 12 or rt100 > 14) %}минуты{% else %}минут{% endif %}
+      {%- endif %}
+      {%- if page.taxonomies.tags %}
+      {%- if page.date or rt %} · {% endif %}
+      {%- for tag in page.taxonomies.tags %}<a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+      {%- endif %}
+    </p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+  </header>
+
+  <div class="prose">
+    {{ page.content | safe }}
+  </div>
+
+  <nav class="post-nav" aria-label="Другие записи">
+    {% if page.earlier %}<a class="prev" href="{{ page.earlier.permalink }}">← {{ page.earlier.title }}</a>{% endif %}
+    {% if page.later %}<a class="next" href="{{ page.later.permalink }}">{{ page.later.title }} →</a>{% endif %}
+  </nav>
+</article>
+{% endblock content %}

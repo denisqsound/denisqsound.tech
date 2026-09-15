@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{ config.default_language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ config.title }}{% endblock title %}</title>
+<meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+{% block og %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}">
+<meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock og_description %}">
+{% endblock og %}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ config.base_url }}/atom.xml">
+<link rel="preload" href="/fonts/pt-serif-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/pt-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/giallo-light.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="/giallo-dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+<header class="site-head">
+  <a class="wordmark" href="{{ config.base_url }}/">{{ config.title }}</a>
+  <nav class="site-nav" aria-label="Основная навигация">
+    <a href="{{ config.base_url }}/articles/">статьи</a>
+    <a href="{{ config.base_url }}/blog/">блог</a>
+    <a href="{{ config.base_url }}/about/">обо мне</a>
+    <a href="{{ config.base_url }}/atom.xml">rss</a>
+  </nav>
+</header>
+<main>
+{% block content %}{% endblock content %}
+</main>
+<footer class="site-foot">
+  <span>© 2026 {{ config.title }}</span>
+  <span class="foot-links">
+    <a href="{{ config.base_url }}/atom.xml">atom</a> ·
+    <a href="https://github.com/denisqsound" rel="me">github</a>
+  </span>
+</footer>
+</body>
+</html>

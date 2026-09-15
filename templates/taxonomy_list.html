@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Теги · {{ config.title }}{% endblock title %}
+
+{% block content %}
+<header class="page-head">
+  <h1>Теги</h1>
+</header>
+<ul class="tag-list">
+  {% for t in terms %}
+  <li><a href="{{ t.permalink }}">{{ t.name }}</a> <span class="meta">{{ t.pages | length }}</span></li>
+  {% endfor %}
+</ul>
+{% endblock content %}

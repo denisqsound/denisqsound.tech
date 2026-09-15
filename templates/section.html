@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} · {{ config.title }}{% endblock title %}
+{% block og_title %}{{ section.title }} · {{ config.title }}{% endblock og_title %}
+
+{% block content %}
+<header class="page-head">
+  <h1>{{ section.title }}</h1>
+  {% if section.description %}<p class="lede">{{ section.description }}</p>{% endif %}
+  {{ section.content | safe }}
+</header>
+
+<ul class="post-list">
+  {% for p in section.pages %}
+  <li>
+    <a class="post-link" href="{{ p.permalink }}">{{ p.title }}</a>
+    {% if p.description %}<p class="post-desc">{{ p.description }}</p>{% endif %}
+    <p class="meta">{{ p.date | date(format="%d.%m.%Y") }}</p>
+  </li>
+  {% else %}
+  <li class="meta">Пока пусто.</li>
+  {% endfor %}
+</ul>
+{% endblock content %}

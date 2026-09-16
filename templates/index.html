@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if section.content %}
 <section class="intro">
   {{ section.content | safe }}
 </section>
+{% endif %}
 
 {% set articles = get_section(path="articles/_index.md") %}
 {% set posts = articles.pages | sort(attribute="date") | reverse %}

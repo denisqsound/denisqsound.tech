@@ -93,7 +93,7 @@
 
 * { box-sizing: border-box; }
 
-html { font-size: 100%; }
+html { font-size: clamp(100%, 78% + 0.45vw, 150%); }
 html, body { overflow-x: clip; }
 
 body {
